@@ -1,0 +1,21 @@
+package fr.polytech.TPRest.Servlet;
+
+import com.sun.research.ws.wadl.Response;
+
+import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+@Path("/aled")
+public class HelloServlet extends HttpServlet {
+
+    @GET
+    @Path("test")
+    public String deletePerson() {
+        return "hello";
+    }
+
+}
