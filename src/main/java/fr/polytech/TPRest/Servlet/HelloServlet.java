@@ -9,11 +9,11 @@ import javax.servlet.annotation.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/aled")
+@Path("/hello")
 public class HelloServlet extends HttpServlet {
 
     @GET
-    @Path("test")
+    @Path("sayHello")
     public String deletePerson() {
         return "hello";
     }

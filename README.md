@@ -9,5 +9,8 @@ Ici la seule différence sera dans le mapping des Servlet et dans leur contenu.
 
 ### Récupération de l'application sous GitHub
 Ici le but n'est pas de vous faire regénérer une application et d'y ajouter des dépendances car il existe un grand nombre d'alternatives possibles pour créer une API Rest sous JEE, il est donc cohérent ici de vous fournir un squellette fonctionnel.
-Je vous invite donc à pull la V1 du projet sous GitHub à cette URL :  <http://www.example.com>
+Je vous invite donc à cloner la V1 du projet sous GitHub à cette URL :  <https://github.com/lcuoco/TPRest.git>
+Une fois le projet cloner Nous allons pouvoir passer à l'étape suivante.
+
+### Tour d'Horzion dans le projet
 
