@@ -64,3 +64,9 @@ public class HelloServlet extends HttpServlet {
 ```
 On voit ici une requète ***Get*** accesible à l'URL <localhost:8080/hello/sayHello>, ici l'application renvéra bien une chaine de caractère ***hello***
 ***Cette exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
+
+### Création de la méthode pour une requête POST
+Cette méthode va nous servir à créer une personne avec un nom et un prénom.
+Nous allons par la suite faire un GET pour récupérer cette personne.
+Pour commencer il faut ajouter les annotations @POST et @Path.
+Ensuite on crée la méthode addPerson
