@@ -62,7 +62,8 @@ public class HelloServlet extends HttpServlet {
     }
 }
 ```
-Après avoir crée une config Tomcat comme fait dans le TP précéndent, on voit ici une requète ***Get*** accesible à l'URL <localhost:8080/hello/sayHello>, ici l'application renvéra bien une chaine de caractère ***hello***
+***ICI ON UTILISE TOMCAT ET PAS TOMEE***
+Après avoir crée une config Tomcat comme fait dans le TP précéndent, on voit ici une requète ***Get*** accesible à l'URL <http://localhost:8080/TPRest_war_exploded/hello/sayHello> (l'url change en focntion de votre configuration de tomcat), ici l'application renvéra bien une chaine de caractère ***hello***
 ***Cette exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
 
 ### Installation de SOAPUI ou Postman
