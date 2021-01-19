@@ -14,7 +14,7 @@ Les échanges sont basés sur les requètes du client à l'API via des requètes
  * ***PUT :*** mettre à jour une ressources spécifié
  * ***DELETE :*** supprimer une ressources spécifié
 
-Nous allons dans la suite du TP utiliser les différentes Méthode.
+Nous allons dans la suite du TP utiliser les différentes Méthodes.
 ## Mise en place d'un projet Rest avec JEE et Jersey avec un Tomcat
 ### Explications de l'architecture de l'application
 L'API Rest que nous allons construire se présente sous la même forme que l'application Web que vous avez déjà créé au cours précédent.
@@ -26,10 +26,10 @@ Ici le but n'est pas de vous faire regénérer une application et d'y ajouter de
 Je vous invite donc à cloner la V1 du projet sous GitHub à cette URL :  <https://github.com/lcuoco/TPRest.git>
 Une fois le projet cloner Nous allons pouvoir passer à l'étape suivante.
 
-### Tour d'Horzion dans le projet
-Après avoir cloner le projet ***TPRest***, vous vous retrouvez donc avec une API Rest initialisé.
-Vous avez différents fichiers différents :
- * ***pom.xml*** c'est le fichier qui peremt de définir comment le projet est ***build*** et de quelles dépendences il à besoin, la première choses à faire est donc de récupérer ses dépendances et de regénérer le livrable à déployer en suivant la procédure suivante :
+### Tour d'Horizon dans le projet
+Après avoir cloné le projet ***TPRest***, vous vous retrouvez donc avec une API Rest initialisée.
+Vous avez différents fichiers :
+ * ***pom.xml*** c'est le fichier qui permet de définir comment le projet est ***build*** et de quelles dépendences il a besoin, la première chose à faire est donc de récupérer ses dépendances et de regénérer le livrable à déployer en suivant la procédure suivante :
      * Si vous êtes sous Intellij :
         Cliquez sur vos configurations en haut gauche, ***Edit Configurations ...*** > ***+*** > ***Maven***, ici dans ***Work Directory***, entrez le chemin du projet et pour la ***Command Line*** tapez : ***clean install***, puis cliquez sur ***Apply*** et ***OK***.
      * Si vous êtes sous Eclipse : Ouvrez une console, rendez-vous à la racine du projet et lancez la commande ***mvn clean install***
@@ -67,6 +67,61 @@ On voit ici une requète ***Get*** accesible à l'URL <localhost:8080/hello/sayH
 
 ### Création de la méthode pour une requête POST
 Cette méthode va nous servir à créer une personne avec un nom et un prénom.
-Nous allons par la suite faire un GET pour récupérer cette personne.
 Pour commencer il faut ajouter les annotations @POST et @Path.
-Ensuite on crée la méthode addPerson
+Avant toute chose il faut ajouter une dépendance jersey dans le pom.xml qui gère le format Json.
+```xml
+<dependency>
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-json</artifactId>
+    <version>1.19</version>
+</dependency>
+```
+Ensuite il faut donner à notre application l'init param qui va nous permettre d'hydrater (créer) des objets Java à partir du Json.
+```xml
+<init-param>
+    <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+    <param-value>true</param-value>
+</init-param>
+```
+Ensuite on crée la méthode addPerson :
+```java
+@POST
+@Path("post")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public Response addPerson(Person person) {
+    return Response.ok().entity(person).cookie(new NewCookie("person", person.toString())).build();
+}
+```
+Cette dernière prend en paramètre un objet Person (deux String : nom et prénom). Cet objet est généré grâce à jersey.
+Ce sont les annotations @Consumes (format de l'objet récupéré) et @Produces (format de l'objet envoyé) qui indiquent à jersey de faire ces opérations.
+Pour l'exemple on renvoie juste un cookie comprenant l'objet Person.
+
+### Création de la méthode pour une requête PUT
+Cette méthode sert à modifier une personne.
+De la même manière que pour la méthode POST il faut mettre les annotations @PUT et @Path
+```java
+@PUT
+@Path("put")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public Response putPerson(Person person) {
+    return Response.ok().entity(person).cookie(new NewCookie("person", person.toString())).build();
+}
+```
+Dans cet exemple on renvoie le même cookie que pour la requête POST. Mais il faut bien comprendre que les requêtes PUT servent à modifier des ressources déjà existantes.
+
+### Création de la méthode pour une requête DELETE
+Cette méthode sert à supprimer une personne.
+Vous l'aurez compris il faut ici mettre l'annotation @DELETE.
+```java
+@DELETE
+@Path("delete")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public Response deletePerson(Person person) {
+    return Response.ok().entity(person).build();
+}
+```
+Ce type de requête sert à supprimer des ressources.
+Comme nous n'avons pas de base de données pour l'exemple on va simplement renvoyer l'objet pour montrer que la reqûete a réussi.
