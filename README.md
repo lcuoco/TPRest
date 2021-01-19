@@ -125,3 +125,6 @@ public Response deletePerson(Person person) {
 ```
 Ce type de requête sert à supprimer des ressources.
 Comme nous n'avons pas de base de données pour l'exemple on va simplement renvoyer l'objet pour montrer que la reqûete a réussi.
+
+## Voyons si vous avez compris (parce qu'avec la correction c'est facile :kissing: )
+Maintenant que vous connaissez les bases de REST
