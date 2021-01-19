@@ -72,7 +72,42 @@ Nous vous laissons le choix sur le logiciel à utiliser.
 
 ### Création de la méthode pour une requête POST
 Cette méthode va nous servir à créer une personne avec un nom et un prénom.
-La classe Person est la pour ça.
+La classe Person est la pour ça. Ajoutez la à votre projet.
+```java
+public class Person {
+    String firstName;
+    String lastName;
+
+    public Person(){}
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Person[firstName=" + firstName + ", lastName=" + lastName + "]";
+    }
+}
+
+```
 Pour commencer il faut ajouter les annotations @POST et @Path.
 Avant toute chose il faut ajouter une dépendance jersey dans le pom.xml qui gère le format Json.
 ```xml
