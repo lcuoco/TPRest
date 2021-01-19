@@ -57,7 +57,7 @@ Comme dans l'application Web réalisé la séance précédente, ici il est confi
 public class HelloServlet extends HttpServlet {
     @GET
     @Path("sayHello")
-    public String deletePerson() {
+    public String sayHello() {
         return "hello";
     }
 }
