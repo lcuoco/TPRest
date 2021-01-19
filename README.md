@@ -64,7 +64,7 @@ public class HelloServlet extends HttpServlet {
 ```
 ***ICI ON UTILISE TOMCAT ET PAS TOMEE***<br/>
 Après avoir crée une config Tomcat comme fait dans le TP précéndent, on voit ici une requète ***Get*** accesible à l'URL <http://localhost:8080/TPRest_war_exploded/hello/sayHello> (l'url change en focntion de votre configuration de tomcat), ici l'application renvéra bien une chaine de caractère ***hello*** <br/>
-***Cette exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
+***Cet exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
 
 ### Installation de SOAPUI ou Postman
 Afin de pouvoir faire des requêtes à votre API REST il vous faut un logiciel.
