@@ -31,7 +31,7 @@ Après avoir cloné le projet ***TPRest***, vous vous retrouvez donc avec une AP
 Vous avez différents fichiers :
 * ***pom.xml*** c'est le fichier qui permet de définir comment le projet est ***build*** et de quelles dépendences il a besoin, la première chose à faire est donc de récupérer ses dépendances et de regénérer le livrable à déployer en suivant la procédure suivante :
     * Si vous êtes sous Intellij :
-      Cliquez sur vos configurations en haut gauche, ***Edit Configurations ...*** > ***+*** > ***Maven***, ici dans ***Work Directory***, entrez le chemin du projet et pour la ***Command Line*** tapez : ***clean install***, puis cliquez sur ***Apply*** et ***OK***.
+      Cliquez sur vos configurations en haut gauche, ***Edit Configurations ...*** > ***+*** > ***Maven***, ici dans ***Work Directory***, entrez le chemin du projet et pour la ***Command Line*** tapez : ***clean install***, puis cliquez sur ***Apply*** et ***OK***, lancez ensuite la configuration.
     * Si vous êtes sous Eclipse : Ouvrez une console, rendez-vous à la racine du projet et lancez la commande ***mvn clean install***
       <br/> Ici vous avez bien récupéré toutes les sources du projet et ses dépendances.
 * ***web.xml*** que vous connaissez déjà, qui décris la configuration de vos Servlet, ici nous n'avons qu'une seule Servlet de configuré. Le fichier se présente comme ci-après :
@@ -57,13 +57,14 @@ Comme dans l'application Web réalisé la séance précédente, ici il est confi
 public class HelloServlet extends HttpServlet {
     @GET
     @Path("sayHello")
-    public String deletePerson() {
+    public String sayHello() {
         return "hello";
     }
 }
 ```
-On voit ici une requète ***Get*** accesible à l'URL <localhost:8080/hello/sayHello>, ici l'application renvéra bien une chaine de caractère ***hello***
-***Cette exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
+***ICI ON UTILISE TOMCAT ET PAS TOMEE***<br/>
+Après avoir crée une config Tomcat comme fait dans le TP précéndent, on voit ici une requète ***Get*** accesible à l'URL <http://localhost:8080/TPRest_war_exploded/hello/sayHello> (l'url change en focntion de votre configuration de tomcat), ici l'application renvéra bien une chaine de caractère ***hello*** <br/>
+***Cet exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
 
 ### Installation de SOAPUI ou Postman
 Afin de pouvoir faire des requêtes à votre API REST il vous faut un logiciel.

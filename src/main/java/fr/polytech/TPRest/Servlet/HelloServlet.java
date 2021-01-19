@@ -14,7 +14,7 @@ public class HelloServlet extends HttpServlet {
 
     @GET
     @Path("sayHello")
-    public String deletePerson() {
+    public String sayHello() {
         return "hello";
     }
 
