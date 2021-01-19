@@ -65,8 +65,14 @@ public class HelloServlet extends HttpServlet {
 On voit ici une requète ***Get*** accesible à l'URL <localhost:8080/hello/sayHello>, ici l'application renvéra bien une chaine de caractère ***hello***
 ***Cette exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
 
+### Installation de SOAPUI ou Postman
+Afin de pouvoir faire des requêtes à votre API REST il vous faut un logiciel.
+Bien que les requêtes GET sont faciles à faire sur un navigateur, il devient difficile de faire les autres types de requêtes.
+Nous vous laissons le choix sur le logiciel à utiliser.
+
 ### Création de la méthode pour une requête POST
 Cette méthode va nous servir à créer une personne avec un nom et un prénom.
+La classe Person est la pour ça.
 Pour commencer il faut ajouter les annotations @POST et @Path.
 Avant toute chose il faut ajouter une dépendance jersey dans le pom.xml qui gère le format Json.
 ```xml
@@ -97,34 +103,24 @@ Cette dernière prend en paramètre un objet Person (deux String : nom et préno
 Ce sont les annotations @Consumes (format de l'objet récupéré) et @Produces (format de l'objet envoyé) qui indiquent à jersey de faire ces opérations.
 Pour l'exemple on renvoie juste un cookie comprenant l'objet Person.
 
+### Création de la méthode pour une requête GET
+Cette méthode va renvoyer un objet Person.
+En vous inspirant de la méthode addPerson, créez la méthode getPerson.
+Pour l'exemple renvoyez simplement un objet Person, comprenant un nom et un prénom, créé dans la méthode.
+
 ### Création de la méthode pour une requête PUT
 Cette méthode sert à modifier une personne.
-De la même manière que pour la méthode POST il faut mettre les annotations @PUT et @Path
-```java
-@PUT
-@Path("put")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
-public Response putPerson(Person person) {
-    return Response.ok().entity(person).cookie(new NewCookie("person", person.toString())).build();
-}
-```
-Dans cet exemple on renvoie le même cookie que pour la requête POST. Mais il faut bien comprendre que les requêtes PUT servent à modifier des ressources déjà existantes.
+Dans cet exemple on renvoie le même cookie que pour la requête POST. 
+Mais il faut bien comprendre que les requêtes PUT servent à modifier des ressources ***déjà existantes***.
 
 ### Création de la méthode pour une requête DELETE
 Cette méthode sert à supprimer une personne.
-Vous l'aurez compris il faut ici mettre l'annotation @DELETE.
-```java
-@DELETE
-@Path("delete")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
-public Response deletePerson(Person person) {
-    return Response.ok().entity(person).build();
-}
-```
 Ce type de requête sert à supprimer des ressources.
 Comme nous n'avons pas de base de données pour l'exemple on va simplement renvoyer l'objet pour montrer que la reqûete a réussi.
 
 ## Voyons si vous avez compris (parce qu'avec la correction c'est facile :kissing: )
-Maintenant que vous connaissez les bases de REST
+Maintenant que vous connaissez les bases de REST vous allez devoir effectuer trois choses :
+1. Créer un service pour ajouter des objets de type Pokemon (champs : nom et niveau)
+2. Créer un service pour récupérer tous les Pokemon
+3. Créer un service pour modifier un Pokemon
+4. Créer un service pour supprimer un Pokemon
