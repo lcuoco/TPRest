@@ -1,6 +1,7 @@
 package fr.polytech.TPRest.Servlet;
 
 public class Person {
+    int id;
     String firstName;
     String lastName;
 
@@ -25,6 +26,14 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

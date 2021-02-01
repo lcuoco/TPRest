@@ -1,9 +1,6 @@
 package fr.polytech.TPRest.Servlet;
 
-import java.io.*;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.http.*
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
@@ -11,13 +8,6 @@ import javax.ws.rs.core.Response;
 
 @Path("/hello")
 public class HelloServlet extends HttpServlet {
-
-    @GET
-    @Path("sayHello")
-    public String deletePerson() {
-        return "hello";
-    }
-
 
     @POST
     @Path("post")

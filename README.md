@@ -63,12 +63,13 @@ public class HelloServlet extends HttpServlet {
 }
 ```
 On voit ici une requète ***Get*** accesible à l'URL <localhost:8080/hello/sayHello>, ici l'application renvéra bien une chaine de caractère ***hello***
-***Cette exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
+***Cet exemple permet d'introduire la syntaxe de création de service Web et dans la suite du TP nous aborderons d'autres méthodes et complexifierons la chose***
 
 ### Création de la méthode pour une requête POST
 Cette méthode va nous servir à créer une personne avec un nom et un prénom.
 Pour commencer il faut ajouter les annotations @POST et @Path.
 Avant toute chose il faut ajouter une dépendance jersey dans le pom.xml qui gère le format Json.
+Vous pourrez voir qu'il y a déjà des dépendances Jersey. C'est un framework qui permet de faire des requêtes REST.
 ```xml
 <dependency>
     <groupId>com.sun.jersey</groupId>
