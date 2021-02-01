@@ -111,6 +111,7 @@ public class Person {
 ```
 Pour commencer il faut ajouter les annotations @POST et @Path.
 Avant toute chose il faut ajouter une dépendance jersey dans le pom.xml qui gère le format Json.
+Vous pourrez voir qu'il y a déjà des dépendances Jersey. C'est un framework qui permet de faire des requêtes REST.
 ```xml
 <dependency>
     <groupId>com.sun.jersey</groupId>
