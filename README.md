@@ -119,7 +119,7 @@ Vous pourrez voir qu'il y a déjà des dépendances Jersey. C'est un framework q
     <version>1.19</version>
 </dependency>
 ```
-Ensuite il faut donner à notre application l'init param dans le web.xml qui va nous permettre d'hydrater (créer) des objets Java à partir du Json.
+Ensuite il faut donner à notre application l'init param dans le web.xml qui va nous permettre de gérer la sérialisation des objets Java en Json.
 ```xml
 <init-param>
     <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
